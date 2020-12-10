@@ -1,0 +1,24 @@
+version: "2.3"
+services:
+  postfix-proxy-ses:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: dockerqoo/postfix-proxy-ses
+    container_name: postfix-proxy-ses
+    hostname: postfix-proxy-ses
+    privileged: true
+    #    command: /qoo/rsyslogd.sh
+    ports:
+      - "25:587"
+      - "587:587"
+    restart: always
+    volumes:
+      - ./main.cf:/etc/postfix/main.cf:z
+      - ./master.cf:/etc/postfix/master.cf:z
+      - ./log:/var/log:z
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5g"
