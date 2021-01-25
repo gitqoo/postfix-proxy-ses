@@ -17,6 +17,8 @@ services:
       - ./main.cf:/etc/postfix/main.cf:z
       - ./master.cf:/etc/postfix/master.cf:z
       - ./log:/var/log:z
+      - ./aliases:/etc/aliases:z
+      - ./aliases.db:/etc/aliases.db:z
     restart: always
     logging:
       driver: "json-file"
