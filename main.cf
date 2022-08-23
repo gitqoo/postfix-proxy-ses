@@ -687,3 +687,4 @@ smtp_use_tls = yes
 myhostname = ms.mogafx.com
 mydomain = mogafx.com
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
+local_header_rewrite_clients = static:all
